@@ -49,9 +49,9 @@ class Builder implements ContainerAwareInterface
                 ]
             )->setExtra('translation_domain', false);;
 
-            $menu['menu.admin']->addChild('menu.servers', [
-                    'route' => 'app_admin_servers',
-                    'label' => $translator->trans('menu.servers', [], 'menu')
+            $menu['menu.admin']->addChild('menu.users', [
+                    'route' => 'app_admin_users',
+                    'label' => $translator->trans('menu.users', [], 'menu')
                 ]
             )->setExtra('translation_domain', false);;
         }

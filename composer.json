@@ -47,7 +47,6 @@
     "jquery/jquery": "1.11.*",
     "symfony/assetic-bundle": "dev-master",
     "jms/di-extra-bundle": "^1.8",
-    "xpaw/php-minecraft-query": "^2.0",
     "fortawesome/font-awesome": "~4.0",
     "components/jqueryui": "^1.12",
     "friendsofsymfony/jsrouting-bundle": "^1.6",
@@ -56,7 +55,8 @@
     "jms/translation-bundle": "dev-master",
     "twig/extensions": "^1.4",
     "jms/i18n-routing-bundle": "dev-master",
-    "willdurand/js-translation-bundle": "^2.6"
+    "willdurand/js-translation-bundle": "^2.6",
+    "yellowskies/QR-code-bundle": "dev-master"
   },
   "require-dev": {
     "sensio/generator-bundle": "^3.0",
