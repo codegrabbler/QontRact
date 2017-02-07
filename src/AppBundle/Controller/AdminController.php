@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\UserType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 use JMS\TranslationBundle\Model\Message;
 use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -28,6 +29,7 @@ class AdminController extends Controller implements TranslationContainerInterfac
     /**
      * @Route("/")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function indexAction()
     {
@@ -37,6 +39,7 @@ class AdminController extends Controller implements TranslationContainerInterfac
     /**
      * @Route("/users")
      * @Template()
+     * @Secure(roles="ROLE_SUPER_ADMIN")
      */
     public function usersAction()
     {
@@ -51,6 +54,7 @@ class AdminController extends Controller implements TranslationContainerInterfac
     /**
      * @Route("/user_edit/{id}")
      * @Template()
+     * @Secure(roles="ROLE_SUPER_ADMIN")
      */
     public function userEditAction(Request $request, $id = null)
     {
