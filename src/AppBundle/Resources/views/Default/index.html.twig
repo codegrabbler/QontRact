@@ -12,6 +12,15 @@
 
 {% block javascripts %}
     <script type="text/javascript">
+        new BugController({
+            'imageSprite': '{{ asset('/images/fly-sprite.png') }}',
+            'maxBugs': 10
+        });
+        new SpiderController({
+            'imageSprite': '{{ asset('/images/spider-sprite.png') }}',
+            'maxBugs': 2
+        });
+
     </script>
 
 {% endblock javascripts %}

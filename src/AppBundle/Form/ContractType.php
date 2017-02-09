@@ -52,12 +52,12 @@ class ContractType extends AbstractType implements TranslationContainerInterface
     public static function getTranslationMessages()
     {
         return [
-            new Message('contract.name','form'),
-            new Message('contract.desc','form'),
-            new Message('contract.startDate','form'),
-            new Message('contract.endDate','form'),
-            new Message('contract.active','form'),
-            new Message('contract.token','form')
+            new Message('contract.name','forms'),
+            new Message('contract.desc','forms'),
+            new Message('contract.startDate','forms'),
+            new Message('contract.endDate','forms'),
+            new Message('contract.active','forms'),
+            new Message('contract.token','forms')
         ];
     }
 }
