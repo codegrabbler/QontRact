@@ -3,21 +3,11 @@
 {% block content %}
     <!-- https://github.com/AntoineTesson/QRcodeBundle -->
     <div class="row">
-        <div class="col-sm-12">
-            {{ barcode({code: 'Guten Morgen!', type: 'qrcode', format: 'html'}) }}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <hr>
+        <div class="col-sm-12 col-lg-8 col-lg-offset-4">
+            {{ barcode({code: 'QontRact', type: 'qrcode', format: 'html', width: 20, height: 20}) }}
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-12">
-            {{ barcode({code: 'http://www.google.de', type: 'qrcode', format: 'svg'}) }}
-        </div>
-    </div>
 {% endblock content %}
 
 {% block javascripts %}
