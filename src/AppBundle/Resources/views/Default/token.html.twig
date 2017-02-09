@@ -1,6 +1,8 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    <div class="row">
+    <div class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
     {% if contract is not empty %}
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -12,16 +14,18 @@
         <!-- List group -->
         <ul class="list-group">
             {% if contract.0.startDate is not empty %}
-            <li class="list-group-item">Startdatum: {{ contract.0.startDate.date }}</li>
+            <li class="list-group-item">Startdatum: {{ contract.0.startDate.date | date('d.m.Y')}}</li>
             {% endif %}
             {% if contract.0.endDate is not empty %}
-        <li class="list-group-item">Enddatum: {{ contract.0.endDate.date }}</li>
+        <li class="list-group-item">Enddatum: {{ contract.0.endDate.date | date('d.m.Y') }}</li>
             {% endif %}
-            <li class="list-group-item">Aktiv: {{ contract.0.active }}</li>
+            <li class="list-group-item">Aktiv: {% if contract.0.active == 1%}ja{% else %}nein{% endif %}</li>
         </ul>
     </div>
     {% else %}
         <h1>FAKE URL!</h1>
     {% endif %}
+    </div>
+    </div>
 {% endblock body %}
 
