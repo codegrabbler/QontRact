@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Contract;
 use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -16,6 +17,20 @@ class DefaultController extends Controller implements TranslationContainerInterf
     public function indexAction()
     {
         return [];
+    }
+
+    /**
+     * @Route("/token/{token}", name="token")
+     * @Template()
+     */
+    public function tokenAction($token)
+    {
+        /** @noinspection PhpUndefinedMethodInspection */
+        $contract = $this->getDoctrine()->getRepository(Contract::class)->findByToken($token);
+        dump($contract);
+        return [
+            'contract' => $contract
+        ];
     }
 
     /**

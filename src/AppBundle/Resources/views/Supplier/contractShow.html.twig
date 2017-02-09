@@ -1,10 +1,16 @@
 {% extends '::base.html.twig' %}
 
 {% block content %}
-<div class="row">
-    <div class="col-sm-12">
-        {{ barcode({code: url('homepage', {'token': contract.token}), type: 'qrcode', format: 'svg'}) }}
+    <div class="row">
+        <div class="col-sm-12">
+            {{ barcode({code: url('token', {'token': contract.token}), type: 'qrcode', format: 'svg'}) }}
+        </div>
     </div>
-</div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <a href="{{ path('token', {'token': contract.token}) }}">{{ url('token', {'token': contract.token}) }}</a>
+        </div>
+    </div>
 {% endblock content %}
 
