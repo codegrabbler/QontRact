@@ -1,10 +1,27 @@
 {% extends '::base.html.twig' %}
 
-{% block content %}
-   <div class="row">
-        <div class="col-sm-12">
-        {{ dump(contract) }}
+{% block body %}
+    {% if contract is not empty %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ contract.0.name }}</h3>
         </div>
+        <div class="panel-body">
+            {{ contract.0.description | nl2br }}
+        </div>
+        <!-- List group -->
+        <ul class="list-group">
+            {% if contract.0.startDate is not empty %}
+            <li class="list-group-item">Startdatum: {{ contract.0.startDate.date }}</li>
+            {% endif %}
+            {% if contract.0.endDate is not empty %}
+        <li class="list-group-item">Enddatum: {{ contract.0.endDate.date }}</li>
+            {% endif %}
+            <li class="list-group-item">Aktiv: {{ contract.0.active }}</li>
+        </ul>
     </div>
-{% endblock content %}
+    {% else %}
+        <h1>FAKE URL!</h1>
+    {% endif %}
+{% endblock body %}
 
