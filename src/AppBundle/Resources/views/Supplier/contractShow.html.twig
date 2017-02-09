@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        {{ barcode({code: url('homepage', {'token': contract.token}), type: 'qrcode', format: 'svg'}) }}
+    </div>
+</div>
+{% endblock content %}
+

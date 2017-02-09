@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-02-09T11:51:20Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-02-09T13:30:05Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
+      <trans-unit id="a64bb501eb6a13aca79cf812832c123960e93a9e" resname="contract.active">
+        <source>contract.active</source>
+        <target>Aktiv</target>
+        <jms:reference-file line="23">/../src/AppBundle/Form/ContractType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="64ae36b77446b1b4f0702251d8ac1508a2c98fba" resname="contract.desc">
+        <source>contract.desc</source>
+        <target>Beschreibung</target>
+        <jms:reference-file line="20">/../src/AppBundle/Form/ContractType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0e66dbfee07a65b8c490518c0cedecd39d708894" resname="contract.endDate">
+        <source>contract.endDate</source>
+        <target>End-Datum</target>
+        <jms:reference-file line="22">/../src/AppBundle/Form/ContractType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4478cb3e08755b26a130174e88aad2e1104e4381" resname="contract.name">
+        <source>contract.name</source>
+        <target>Name</target>
+        <jms:reference-file line="19">/../src/AppBundle/Form/ContractType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e61b71950a2f19f18ea9db67053f8bc44ad499ad" resname="contract.startDate">
+        <source>contract.startDate</source>
+        <target>Start-Datum</target>
+        <jms:reference-file line="21">/../src/AppBundle/Form/ContractType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bdc764a15e1d4df9c0b17718e1586072537f4988" resname="contract.token">
+        <source>contract.token</source>
+        <target>Token</target>
+        <jms:reference-file line="24">/../src/AppBundle/Form/ContractType.php</jms:reference-file>
+      </trans-unit>
       <trans-unit id="f04b4b0274c32cb1120f106b9cfae76ea8abaa71" resname="field.password">
         <source>field.password</source>
         <target>Passwort</target>

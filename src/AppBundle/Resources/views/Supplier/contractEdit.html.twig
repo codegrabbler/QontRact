@@ -1,5 +1,25 @@
 {% extends "::base.html.twig" %}
 
 {% block content %}
-<h1>Welcome to the Supplier:contractEdit page</h1>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    {{ "button.save" | trans | desc('Save button') }}
+                </button>
+                <a class="btn btn-default" href="{{ path('app_admin_users') }}">
+                    {{ "button.cancel" | trans | desc('Cancel Button') }}
+                </a>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
 {% endblock content %}
