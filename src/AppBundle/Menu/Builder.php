@@ -41,6 +41,13 @@ class Builder implements ContainerAwareInterface
             ]
         )->setExtra('translation_domain', false);
 
+        $menu->addChild('menu.supplier', [
+                'route' => 'app_supplier_index',
+                'label' => $translator->trans('menu.supplier', [], 'menu')
+            ]
+        )->setExtra('translation_domain', false);
+
+
         if ($this->securityContext->isGranted('ROLE_ADMIN')) {
 
             $menu->addChild('menu.admin', [

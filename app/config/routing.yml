@@ -12,6 +12,12 @@ ajax:
     resource: "@AppBundle/Controller/AjaxController.php"
     type:     annotation
     prefix: /ajax
+
+supplier:
+    resource: "@AppBundle/Controller/SupplierController.php"
+    type:     annotation
+    prefix: /supplier
+
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 

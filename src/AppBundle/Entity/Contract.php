@@ -63,6 +63,14 @@ class Contract
      */
     private $token;
 
+    /**
+     * Contract constructor.
+     */
+    public function __construct()
+    {
+        $this->active = true;
+    }
+
 
     /**
      * Get id
