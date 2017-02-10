@@ -26,18 +26,18 @@
 /vendor/
 
 # Assets and user uploads
-/web/bundles/
+#/web/bundles/
 /web/uploads/
 
 # Assets managed by Bower
-/web/assets/vendor/
+#/web/assets/vendor/
 
 # Other stuff in web
-/web/css/
-/web/fonts
-/web/js
-/web/config.php
-!/web/images
+#/web/css/
+#/web/fonts
+#/web/js
+#/web/config.php
+#!/web/images
 # PHPUnit
 /app/phpunit.xml
 /phpunit.xml
