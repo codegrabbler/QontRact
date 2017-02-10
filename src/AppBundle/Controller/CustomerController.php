@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Contract;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -11,7 +12,7 @@ class CustomerController extends Controller
 {
     /**
      * @Route("/contractImport/{token}")
-     * @Template()
+     * @Secure(roles="ROLE_USER")
      */
     public function contractImportAction($token)
     {
