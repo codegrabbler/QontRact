@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ 'contract.header.name' | trans | desc('Name') }}</th>
+                    <th>{{ 'contract.header.actions' | trans | desc('Aktionen') }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for contract in contracts %}
+                    <tr>
+                        <td>{{ contract.name }}</td>
+                        <td>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                {#
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td><a href="{{ path('app_supplier_contractedit') }}" class="btn btn-default btn-tiny">{{ icon('plus') }}</a></td>
+                </tr>
+                </tfoot>
+                #}
+            </table>
+        </div>
+    </div>
+{% endblock content %}
