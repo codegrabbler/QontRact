@@ -94,6 +94,12 @@ class Contract
     private $paymentInterval;
 
     /**
+     * @var  User
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="contracts")
+     */
+    private $owner;
+
+    /**
      * Contract constructor.
      */
     public function __construct()
@@ -326,5 +332,28 @@ class Contract
 
         return $this;
     }
-}
 
+    /**
+     * Set owner
+     *
+     * @param \AppBundle\Entity\User $owner
+     *
+     * @return Contract
+     */
+    public function setOwner(\AppBundle\Entity\User $owner = null)
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Get owner
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+}

@@ -18,6 +18,11 @@ supplier:
     type:     annotation
     prefix: /supplier
 
+customer:
+    resource: "@AppBundle/Controller/CustomerController.php"
+    type:     annotation
+    prefix: /customer
+
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
