@@ -30,7 +30,8 @@ class Builder implements ContainerAwareInterface
         FactoryInterface $factory,
         /** @noinspection PhpUnusedParameterInspection */
         array $options
-    ) {
+    )
+    {
         /** @var Translator $translator */
         $translator = $this->container->get('translator');
         $menu = $factory->createItem('root');
@@ -41,14 +42,13 @@ class Builder implements ContainerAwareInterface
             ]
         )->setExtra('translation_domain', false);
 
-        $menu->addChild('menu.supplier', [
-                'route' => 'app_supplier_index',
-                'label' => $translator->trans('menu.supplier', [], 'menu')
-            ]
-        )->setExtra('translation_domain', false);
-
-
         if ($this->securityContext->isGranted('ROLE_ADMIN')) {
+            $menu->addChild('menu.supplier', [
+                    'route' => 'app_supplier_index',
+                    'label' => $translator->trans('menu.supplier', [], 'menu')
+                ]
+            )->setExtra('translation_domain', false);
+
 
             $menu->addChild('menu.admin', [
                     'route' => 'app_admin_index',
@@ -69,7 +69,8 @@ class Builder implements ContainerAwareInterface
         FactoryInterface $factory,
         /** @noinspection PhpUnusedParameterInspection */
         array $options
-    ) {
+    )
+    {
         $translator = $this->container->get('translator');
         $menu = $factory->createItem('root');
         if ($this->securityContext->isGranted('ROLE_USER')) {
