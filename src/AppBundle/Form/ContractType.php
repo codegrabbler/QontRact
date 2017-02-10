@@ -56,7 +56,7 @@ class ContractType extends AbstractType implements TranslationContainerInterface
                     'interval.onetime' => Contract::INTERVAL_ONETIME,
                     'interval.month' => Contract::INTERVAL_MONTH,
                     'interval.quarter' => Contract::INTERVAL_QUARTER,
-                    'interval.year' => Contract::INTERVAL_WEEK
+                    'interval.year' => Contract::INTERVAL_YEAR
                 ]
 
             ])
@@ -69,7 +69,7 @@ class ContractType extends AbstractType implements TranslationContainerInterface
                     'interval.onetime' => Contract::INTERVAL_ONETIME,
                     'interval.month' => Contract::INTERVAL_MONTH,
                     'interval.quarter' => Contract::INTERVAL_QUARTER,
-                    'interval.year' => Contract::INTERVAL_WEEK
+                    'interval.year' => Contract::INTERVAL_YEAR
                 ]
 
             ])

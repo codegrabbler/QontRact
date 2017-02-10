@@ -26,7 +26,7 @@ class DefaultController extends Controller implements TranslationContainerInterf
     public function tokenAction($token)
     {
         /** @noinspection PhpUndefinedMethodInspection */
-        $contract = $this->getDoctrine()->getRepository(Contract::class)->findByToken($token);
+        $contract = $this->getDoctrine()->getRepository(Contract::class)->findOneByToken($token);
 
         return [
             'contract' => $contract
