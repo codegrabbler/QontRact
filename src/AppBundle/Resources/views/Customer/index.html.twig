@@ -15,6 +15,7 @@
                     <tr>
                         <td>{{ contract.name }}</td>
                         <td>
+                            <a href="{{ path('app_customer_contractview', {'id':contract.id}) }}" class="btn btn-default btn-tiny">{{ icon('eye') }}</a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -1,0 +1,58 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            {% if contract is not empty %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ contract.name }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="well">
+                            {{ contract.description | nl2br }}
+                        </div>
+
+
+                        <!-- List group -->
+                        <ul class="list-group">
+                            {% if contract.startDate is not empty %}
+                                <li class="list-group-item">
+                                    Startdatum: {{ contract.startDate.date | date('d.m.Y') }}</li>
+                            {% endif %}
+                            {% if contract.endDate is not empty %}
+                                <li class="list-group-item">Enddatum: {{ contract.endDate.date | date('d.m.Y') }}</li>
+                            {% endif %}
+                            <li class="list-group-item">
+                                Aktiv: {% if contract.active == 1 %}ja{% else %}nein{% endif %}</li>
+                            <li class="list-group-item">
+                                Kosten: {{ contract.totalAmount }} € /
+                                {% if contract.totalInterval == 1 %}einmalig
+                                {% elseif contract.totalInterval == 4 %}Monat
+                                {% elseif contract.totalInterval == 5 %}Quartal
+                                {% elseif contract.totalInterval == 6 %}Jahr
+                                {% endif %}
+                            </li>
+                            <li class="list-group-item">
+                                Zahlungsweise: {{ contract.paymentAmount }} € /
+                                {% if contract.paymentInterval == 1 %}einmalig
+                                {% elseif contract.paymentInterval == 4 %}Monat
+                                {% elseif contract.paymentInterval == 5 %}Quartal
+                                {% elseif contract.paymentInterval == 6 %}Jahr
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <a class="btn btn-default" href="{{ path('app_customer_index') }}">{{ icon('list') }}</a>
+                    </div>
+
+                </div>
+            {% else %}
+                <h1>FAKE URL!</h1>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+

@@ -39,4 +39,16 @@ class CustomerController extends Controller
         ];
     }
 
+    /**
+     * @Route("/contractView/{id}")
+     * @Template()
+     */
+    public function contractViewAction($id)
+    {
+        $contract = $this->getDoctrine()->getRepository(Contract::class)->find($id);
+        return [
+            'contract' => $contract
+        ];
+    }
+
 }
