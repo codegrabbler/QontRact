@@ -3,10 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Contract;
+use AppBundle\Form\ContractCustomerType;
 use JMS\SecurityExtraBundle\Annotation\Secure;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class CustomerController extends Controller
 {
@@ -51,4 +53,33 @@ class CustomerController extends Controller
         ];
     }
 
+    /**
+     * @Route("/contractEdit/{id}")
+     * @Template()
+     */
+    public function contractEditAction(Request $request, $id = null)
+    {
+        $contractRepository = $this->getDoctrine()->getRepository(Contract::class);
+        if ($id) {
+            $contract = $contractRepository->find($id);
+        } else {
+            $contract = new Contract();
+            $contract->setOwner($this->getUser());
+        }
+        $form = $this->createForm(ContractCustomerType::class, $contract);
+
+        if ($request->isMethod(Request::METHOD_POST)) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $manager = $this->getDoctrine()->getManager();
+                $manager->persist($contract);
+                $manager->flush();
+                return $this->redirect($this->generateUrl('app_supplier_index'));
+            }
+
+        }
+        return [
+            'form' => $form->createView()
+        ];
+    }
 }

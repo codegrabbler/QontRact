@@ -16,18 +16,19 @@
                         <td>{{ contract.name }}</td>
                         <td>
                             <a href="{{ path('app_customer_contractview', {'id':contract.id}) }}" class="btn btn-default btn-tiny">{{ icon('eye') }}</a>
+                            <a href="{{ path('app_customer_contractedit', {'id':contract.id}) }}" class="btn btn-default btn-tiny">{{ icon('pencil') }}</a>
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
-                {#
+
                 <tfoot>
                 <tr>
                     <td></td>
-                    <td><a href="{{ path('app_supplier_contractedit') }}" class="btn btn-default btn-tiny">{{ icon('plus') }}</a></td>
+                    <td><a href="{{ path('app_customer_contractedit') }}" class="btn btn-default btn-tiny">{{ icon('plus') }}</a></td>
                 </tr>
                 </tfoot>
-                #}
+
             </table>
         </div>
     </div>
