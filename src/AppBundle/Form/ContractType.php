@@ -2,14 +2,41 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Contract;
 use JMS\TranslationBundle\Model\Message;
 use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ContractType extends AbstractType implements TranslationContainerInterface
 {
+    /**
+     * Returns an array of messages.
+     *
+     * @return array<Message>
+     */
+    public static function getTranslationMessages()
+    {
+        return [
+            new Message('contract.name', 'forms'),
+            new Message('contract.desc', 'forms'),
+            new Message('contract.startDate', 'forms'),
+            new Message('contract.endDate', 'forms'),
+            new Message('contract.active', 'forms'),
+            new Message('contract.token', 'forms'),
+            new Message('contract.interval', 'forms'),
+            new Message('contract.paymentInterval', 'forms'),
+            new Message('contract.totalAmount', 'forms'),
+            new Message('contract.paymentAmount', 'forms'),
+            new Message('interval.onetime', 'forms'),
+            new Message('interval.month', 'forms'),
+            new Message('interval.quarter', 'forms'),
+            new Message('interval.year', 'forms')
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -20,6 +47,32 @@ class ContractType extends AbstractType implements TranslationContainerInterface
             ->add('description', null, ['label' => 'contract.desc'])
             ->add('startDate', null, ['label' => 'contract.startDate'])
             ->add('endDate', null, ['required' => false, 'label' => 'contract.endDate'])
+            ->add('totalAmount', null, ['label' => 'contract.totalAmount'])
+            ->add('totalInterval', ChoiceType::class, [
+                'multiple' => false,
+                'expanded' => false,
+                'label' => 'contract.interval',
+                'choices' => [
+                    'interval.onetime' => Contract::INTERVAL_ONETIME,
+                    'interval.month' => Contract::INTERVAL_MONTH,
+                    'interval.quarter' => Contract::INTERVAL_QUARTER,
+                    'interval.year' => Contract::INTERVAL_WEEK
+                ]
+
+            ])
+            ->add('paymentAmount', null, ['label' => 'contract.paymentAmount'])
+            ->add('paymentInterval', ChoiceType::class, [
+                'multiple' => false,
+                'expanded' => false,
+                'label' => 'contract.paymentInterval',
+                'choices' => [
+                    'interval.onetime' => Contract::INTERVAL_ONETIME,
+                    'interval.month' => Contract::INTERVAL_MONTH,
+                    'interval.quarter' => Contract::INTERVAL_QUARTER,
+                    'interval.year' => Contract::INTERVAL_WEEK
+                ]
+
+            ])
             ->add('active', null, ['required' => false, 'label' => 'contract.active'])
             ->add('token', null, ['label' => 'contract.token']);
     }
@@ -41,23 +94,5 @@ class ContractType extends AbstractType implements TranslationContainerInterface
     public function getBlockPrefix()
     {
         return 'appbundle_contract';
-    }
-
-
-    /**
-     * Returns an array of messages.
-     *
-     * @return array<Message>
-     */
-    public static function getTranslationMessages()
-    {
-        return [
-            new Message('contract.name','forms'),
-            new Message('contract.desc','forms'),
-            new Message('contract.startDate','forms'),
-            new Message('contract.endDate','forms'),
-            new Message('contract.active','forms'),
-            new Message('contract.token','forms')
-        ];
     }
 }

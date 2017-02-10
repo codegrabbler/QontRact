@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Contract
 {
+    const INTERVAL_ONETIME = 1;
+    const INTERVAL_DAY = 2;
+    const INTERVAL_WEEK = 3;
+    const INTERVAL_MONTH = 4;
+    const INTERVAL_QUARTER = 5;
+    const INTERVAL_YEAR = 6;
     /**
      * @var int
      *
@@ -64,6 +70,30 @@ class Contract
     private $token;
 
     /**
+     * @var  float
+     * @ORM\Column(name="total_amount", type="float")
+     */
+    private $totalAmount;
+
+    /**
+     * @var  integer
+     * @ORM\Column(name="total_interval", type="integer")
+     */
+    private $totalInterval;
+
+    /**
+     * @var  float
+     * @ORM\Column(name="payment_amount", type="float")
+     */
+    private $paymentAmount;
+
+    /**
+     * @var  integer
+     * @ORM\Column(name="payment_interval", type="integer")
+     */
+    private $paymentInterval;
+
+    /**
      * Contract constructor.
      */
     public function __construct()
@@ -71,6 +101,77 @@ class Contract
         $this->active = true;
     }
 
+    /**
+     * @return float
+     */
+    public function getTotalAmount()
+    {
+        return $this->totalAmount;
+    }
+
+    /**
+     * @param float $totalAmount
+     * @return Contract
+     */
+    public function setTotalAmount($totalAmount)
+    {
+        $this->totalAmount = $totalAmount;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTotalInterval()
+    {
+        return $this->totalInterval;
+    }
+
+    /**
+     * @param int $totalInterval
+     * @return Contract
+     */
+    public function setTotalInterval($totalInterval)
+    {
+        $this->totalInterval = $totalInterval;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPaymentAmount()
+    {
+        return $this->paymentAmount;
+    }
+
+    /**
+     * @param float $paymentAmount
+     * @return Contract
+     */
+    public function setPaymentAmount($paymentAmount)
+    {
+        $this->paymentAmount = $paymentAmount;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPaymentInterval()
+    {
+        return $this->paymentInterval;
+    }
+
+    /**
+     * @param int $paymentInterval
+     * @return Contract
+     */
+    public function setPaymentInterval($paymentInterval)
+    {
+        $this->paymentInterval = $paymentInterval;
+        return $this;
+    }
 
     /**
      * Get id
@@ -80,6 +181,16 @@ class Contract
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -97,13 +208,13 @@ class Contract
     }
 
     /**
-     * Get name
+     * Get description
      *
      * @return string
      */
-    public function getName()
+    public function getDescription()
     {
-        return $this->name;
+        return $this->description;
     }
 
     /**
@@ -121,13 +232,13 @@ class Contract
     }
 
     /**
-     * Get description
+     * Get startDate
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getDescription()
+    public function getStartDate()
     {
-        return $this->description;
+        return $this->startDate;
     }
 
     /**
@@ -145,13 +256,13 @@ class Contract
     }
 
     /**
-     * Get startDate
+     * Get endDate
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getEndDate()
     {
-        return $this->startDate;
+        return $this->endDate;
     }
 
     /**
@@ -169,13 +280,13 @@ class Contract
     }
 
     /**
-     * Get endDate
+     * Get active
      *
-     * @return \DateTime
+     * @return bool
      */
-    public function getEndDate()
+    public function getActive()
     {
-        return $this->endDate;
+        return $this->active;
     }
 
     /**
@@ -193,13 +304,13 @@ class Contract
     }
 
     /**
-     * Get active
+     * Get token
      *
-     * @return bool
+     * @return string
      */
-    public function getActive()
+    public function getToken()
     {
-        return $this->active;
+        return $this->token;
     }
 
     /**
@@ -214,16 +325,6 @@ class Contract
         $this->token = $token;
 
         return $this;
-    }
-
-    /**
-     * Get token
-     *
-     * @return string
-     */
-    public function getToken()
-    {
-        return $this->token;
     }
 }
 
